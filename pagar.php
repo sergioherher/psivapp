@@ -4,7 +4,7 @@ if(!isset($_POST['submit'])) {
       exit("Hubo un error");
 }
 
-require 'includes/paypal.php';
+require_once 'includes/paypal.php';
 
 use PayPal\Api\Payer;
 use PayPal\Api\Item;
@@ -57,10 +57,15 @@ $compra->setPaymentMethod('paypal');
 
 
 $articulo = new Item();
-$articulo->setName($producto)
+/*$articulo->setName($producto)
          ->setCurrency('MXN')
          ->setQuantity(1)
-         ->setPrice($precio);
+         ->setPrice($precio);*/
+
+$articulo->setName($eventos)
+         ->setCurrency('MXN')
+         ->setQuantity(1)
+         ->setPrice($total);
 
 $i = 0;
 $arreglo_pedido = array();
@@ -116,7 +121,7 @@ $transaccion->setAmount($cantidad)
 
 $redireccionar = new RedirectUrls();
 $redireccionar->setReturnUrl(URL_SITIO . "/pago_finalizado.php?exito=true&id_pago={$ID_registro}")
-              ->setCancelUrl(URL_SITIO . "/pago_finalizado.php?exito=false&id_pago={$ID_registro}");
+              ->setCancelUrl(URL_SITIO . "/pago_finalizado.php?exito=false&id_pago={$ID_registro}");           
 
 
 $pago = new Payment();

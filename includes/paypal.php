@@ -3,9 +3,9 @@
 
 require __DIR__  . '/paypal/autoload.php';
 
-//define('URL_SITIO', 'http://localhost/PSIVAPP/');
+define('URL_SITIO', 'http://localhost/PSIVAPP/');
 
-define('URL_SITIO', 'http://psivapp.shh/');
+//define('URL_SITIO', 'http://psivapp.shh/');
 
 $apiContext = new \PayPal\Rest\ApiContext(
       new \PayPal\Auth\OAuthTokenCredential(
