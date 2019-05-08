@@ -28,9 +28,10 @@ CREATE TABLE `admins` (
   `nombre` varchar(100) NOT NULL,
   `password` varchar(72) NOT NULL,
   `nivel` int(11) NOT NULL,
+  `editado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_admin`),
   UNIQUE KEY `usuario` (`usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +40,7 @@ CREATE TABLE `admins` (
 
 LOCK TABLES `admins` WRITE;
 /*!40000 ALTER TABLE `admins` DISABLE KEYS */;
-INSERT INTO `admins` VALUES (3,'admin','Marco','$2y$12$2u3rWnBa4Hx7ZGVipNjO6ux3lEr/5nYkL4quhUNTCHbxkG0U.obja',0),(4,'admin2','Antonio','$2y$12$oAE8Eb5xFlSZnIJ2e7DuGOvekBuUZr9.iHGG.aOvSkDxMwX1ocz56',0),(5,'admin3','Anguiano','$2y$12$47p8S2jf6eBxXyMoyeQXAez1DyxyIYwHtq6wyauRmvm.iPhJ8siBq',0),(6,'admin4','Serrano','$2y$12$LobTumIX2hltn14FcG.Gh.3K225w0qaizpWTBxoHZmN6crI302q4m',0),(7,'sergio','sergio','$2y$10$nCj.abKkQL0.ancsorD69ew1yiMocWL4T3AFHURLOE9baC9hsN2Qm',1);
+INSERT INTO `admins` VALUES (3,'admin','Marco','$2y$12$2u3rWnBa4Hx7ZGVipNjO6ux3lEr/5nYkL4quhUNTCHbxkG0U.obja',0,'2019-05-08 15:12:04'),(4,'admin2','Antonio','$2y$12$oAE8Eb5xFlSZnIJ2e7DuGOvekBuUZr9.iHGG.aOvSkDxMwX1ocz56',0,'2019-05-08 15:12:04'),(5,'admin3','Anguiano','$2y$12$47p8S2jf6eBxXyMoyeQXAez1DyxyIYwHtq6wyauRmvm.iPhJ8siBq',0,'2019-05-08 15:12:04'),(6,'admin4','Serrano','$2y$12$LobTumIX2hltn14FcG.Gh.3K225w0qaizpWTBxoHZmN6crI302q4m',0,'2019-05-08 15:12:04'),(7,'sergio','sergio','$2y$12$.MSQ.4jrkCxnDAYclggTVu/vgvY5A8S9sfPJJREUOLdAJ5hQagCO.',1,'2019-05-08 15:26:05'),(8,'sergioadmin2','Sergio Admin 2','$2y$12$JPvn9ImdAyCj4LdhTveCoell38wf9Co2MNnCClNYWDq2NPiNXZyOq',1,'2019-05-08 15:28:18');
 /*!40000 ALTER TABLE `admins` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,8 +55,9 @@ CREATE TABLE `categoria_evento` (
   `id_categoria` tinyint(10) NOT NULL AUTO_INCREMENT,
   `cat_evento` varchar(50) NOT NULL,
   `icono` varchar(15) NOT NULL,
+  `editado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +66,7 @@ CREATE TABLE `categoria_evento` (
 
 LOCK TABLES `categoria_evento` WRITE;
 /*!40000 ALTER TABLE `categoria_evento` DISABLE KEYS */;
-INSERT INTO `categoria_evento` VALUES (1,'Seminario','fa-university'),(2,'Conferencias','fa-comment'),(3,'Talleres','fa-code');
+INSERT INTO `categoria_evento` VALUES (1,'Seminario','fa-university','2019-05-08 15:08:40'),(2,'Conferencias','fa-comment','2019-05-08 15:08:40'),(3,'Talleres','fa-code','2019-05-08 15:08:40'),(4,'Categoria prueba ','fa-adjust','2019-05-08 15:08:45');
 /*!40000 ALTER TABLE `categoria_evento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,12 +85,13 @@ CREATE TABLE `eventos` (
   `id_cat_evento` tinyint(10) NOT NULL,
   `id_inv` tinyint(4) NOT NULL,
   `clave` varchar(10) NOT NULL,
+  `editado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`evento_id`),
   KEY `id_cat_evento` (`id_cat_evento`),
   KEY `id_inv` (`id_inv`),
   CONSTRAINT `eventos_ibfk_1` FOREIGN KEY (`id_cat_evento`) REFERENCES `categoria_evento` (`id_categoria`),
   CONSTRAINT `eventos_ibfk_2` FOREIGN KEY (`id_inv`) REFERENCES `invitados` (`invitado_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +100,7 @@ CREATE TABLE `eventos` (
 
 LOCK TABLES `eventos` WRITE;
 /*!40000 ALTER TABLE `eventos` DISABLE KEYS */;
-INSERT INTO `eventos` VALUES (1,'Escuela Para Padres','2019-06-09','10:00:00',3,1,'taller_01'),(2,'¿Depresion y Tristeza?','2019-06-09','12:00:00',3,2,'taller_02'),(3,' Un mejor lugar','2019-06-09','14:00:00',3,3,'taller_03'),(4,'Comunidad Feliz','2019-06-09','17:00:00',3,4,'taller_04'),(5,'Ayuda y ayudate','2019-06-09','19:00:00',3,1,'taller_05'),(6,'Controla Tus Impulsos','2019-06-09','10:00:00',2,2,'conf_01'),(7,'Disfruta Tu Felicidad','2019-06-09','17:00:00',2,3,'conf_02'),(8,'Traza tu camino','2019-06-09','19:00:00',2,4,'conf_03'),(9,'PSIVA en comunidad','2019-06-09','10:00:00',1,1,'sem_01'),(10,'Niños/Niñas mejores 2019','2019-06-10','10:00:00',3,2,'taller_06'),(11,'Trabajo en comunidad','2019-06-10','12:00:00',3,3,'taller_07'),(12,'Libre','2019-06-10','14:00:00',3,4,'taller_08'),(13,'Ayuda y Ayudate','2019-06-10','17:00:00',3,1,'taller_09'),(14,'Con Optimismo para ti','2019-06-10','19:00:00',3,2,'taller_10'),(15,'¿Quien soy?','2019-06-10','21:00:00',3,3,'taller_11'),(16,'Un cambio por ti','2019-06-10','10:00:00',2,4,'conf_04'),(17,'Problema Y Solucion','2019-06-10','17:00:00',2,1,'conf_05'),(18,'El turno del cambio ','2019-06-10','19:00:00',2,2,'conf_06'),(19,'SAJUBA','2019-06-10','10:00:00',1,3,'sem_02'),(20,'PSIVA en la comunidad','2019-06-10','17:00:00',1,4,'sem_03'),(21,'Ayuda y Ayudate','2019-06-11','10:00:00',3,1,'taller_12'),(22,'Ser mejor Padre','2019-06-11','12:00:00',3,2,'taller_13'),(23,'Ser mejor Hijo','2019-06-11','14:00:00',3,3,'taller_14'),(24,'Un futuro mejor','2019-06-11','17:00:00',3,4,'taller_15'),(25,'¿Quien soy?','2019-06-11','19:00:00',3,1,'taller_16'),(26,'Problema Y Solucion','2019-06-11','10:00:00',2,2,'conf_07'),(27,'¿Soy mala persona?','2019-06-11','17:00:00',2,3,'conf_08'),(28,'Controla Tus Impulsos','2019-06-11','19:00:00',2,4,'conf_09'),(29,'Psicologos Catolicos','2019-06-11','10:00:00',1,1,'sem_04'),(30,'SAJUBA','2019-06-11','17:00:00',1,2,'sem_05');
+INSERT INTO `eventos` VALUES (1,'Escuela Para Padres','2019-06-09','10:00:00',3,1,'taller_01','2019-05-08 15:05:05'),(2,'¿Depresion y Tristeza?','2019-06-09','12:00:00',3,2,'taller_02','2019-05-08 15:05:05'),(3,' Un mejor lugar','2019-06-09','14:00:00',3,3,'taller_03','2019-05-08 15:05:05'),(4,'Comunidad Feliz','2019-06-09','17:00:00',3,4,'taller_04','2019-05-08 15:05:05'),(5,'Ayuda y ayudate','2019-06-09','19:00:00',3,1,'taller_05','2019-05-08 15:05:05'),(6,'Controla Tus Impulsos','2019-06-09','10:00:00',2,2,'conf_01','2019-05-08 15:05:05'),(7,'Disfruta Tu Felicidad','2019-06-09','17:00:00',2,3,'conf_02','2019-05-08 15:05:05'),(8,'Traza tu camino','2019-06-09','19:00:00',2,4,'conf_03','2019-05-08 15:05:05'),(9,'PSIVA en comunidad','2019-06-09','10:00:00',1,1,'sem_01','2019-05-08 15:05:05'),(10,'Niños/Niñas mejores 2019','2019-06-10','10:00:00',3,2,'taller_06','2019-05-08 15:05:05'),(11,'Trabajo en comunidad','2019-06-10','12:00:00',3,3,'taller_07','2019-05-08 15:05:05'),(12,'Libre','2019-06-10','14:00:00',3,4,'taller_08','2019-05-08 15:05:05'),(13,'Ayuda y Ayudate','2019-06-10','17:00:00',3,1,'taller_09','2019-05-08 15:05:05'),(14,'Con Optimismo para ti','2019-06-10','19:00:00',3,2,'taller_10','2019-05-08 15:05:05'),(15,'¿Quien soy?','2019-06-10','21:00:00',3,3,'taller_11','2019-05-08 15:05:05'),(16,'Un cambio por ti','2019-06-10','10:00:00',2,4,'conf_04','2019-05-08 15:05:05'),(17,'Problema Y Solucion','2019-06-10','17:00:00',2,1,'conf_05','2019-05-08 15:05:05'),(18,'El turno del cambio ','2019-06-10','19:00:00',2,2,'conf_06','2019-05-08 15:05:05'),(19,'SAJUBA','2019-06-10','10:00:00',1,3,'sem_02','2019-05-08 15:05:05'),(20,'PSIVA en la comunidad','2019-06-10','17:00:00',1,4,'sem_03','2019-05-08 15:05:05'),(21,'Ayuda y Ayudate','2019-06-11','10:00:00',3,1,'taller_12','2019-05-08 15:05:05'),(22,'Ser mejor Padre','2019-06-11','12:00:00',3,2,'taller_13','2019-05-08 15:05:05'),(23,'Ser mejor Hijo','2019-06-11','14:00:00',3,3,'taller_14','2019-05-08 15:05:05'),(24,'Un futuro mejor','2019-06-11','17:00:00',3,4,'taller_15','2019-05-08 15:05:05'),(25,'¿Quien soy?','2019-06-11','19:00:00',3,1,'taller_16','2019-05-08 15:05:05'),(26,'Problema Y Solucion','2019-06-11','10:00:00',2,2,'conf_07','2019-05-08 15:05:05'),(27,'¿Soy mala persona?','2019-06-11','17:00:00',2,3,'conf_08','2019-05-08 15:05:05'),(28,'Controla Tus Impulsos','2019-06-11','19:00:00',2,4,'conf_09','2019-05-08 15:05:05'),(29,'Psicologos Catolicos','2019-06-11','10:00:00',1,1,'sem_04','2019-05-08 15:05:05'),(30,'SAJUBA','2019-06-11','17:00:00',1,2,'sem_05','2019-05-08 15:05:05'),(31,'PruebaSergio','2019-05-23','10:00:00',2,2,'conf_10','2019-05-08 15:05:05'),(32,'PruebaSergio','2019-05-23','10:00:00',2,2,'conf_11','2019-05-08 15:05:05');
 /*!40000 ALTER TABLE `eventos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,7 +118,7 @@ CREATE TABLE `invitados` (
   `descripcion` text NOT NULL,
   `url_imagen` varchar(50) NOT NULL,
   PRIMARY KEY (`invitado_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +127,7 @@ CREATE TABLE `invitados` (
 
 LOCK TABLES `invitados` WRITE;
 /*!40000 ALTER TABLE `invitados` DISABLE KEYS */;
-INSERT INTO `invitados` VALUES (1,'Ruth','Izaguirre','Lic. En Psicologia','invitado1.jpg'),(2,'Ines','Mejia','Lic. En Psicologia\r\nMaestria En Ciencias De La Familia','invitado2.jpg'),(3,'Ivan','Toscano','Lic. En Teologia','invitado3.jpg'),(4,'Beatriz','Serrano','Lic. En Psicologia','invitado4.jpg');
+INSERT INTO `invitados` VALUES (1,'Ruth','Izaguirre','Lic. En Psicologia','invitado1.jpg'),(2,'Ines','Mejia','Lic. En Psicologia\r\nMaestria En Ciencias De La Familia','invitado2.jpg'),(3,'Ivan','Toscano','Lic. En Teologia','invitado3.jpg'),(4,'Beatriz','Serrano','Lic. En Psicologia','invitado4.jpg'),(5,'Sergio ','Hernandez','Ing. ElectrÃ³nico Editado','intellectual-property.png');
 /*!40000 ALTER TABLE `invitados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,4 +198,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-08  9:04:08
+-- Dump completed on 2019-05-08 12:54:29

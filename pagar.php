@@ -4,6 +4,8 @@ if(!isset($_POST['submit'])) {
       exit("Hubo un error");
 }
 
+require 'includes/paypal.php';
+
 use PayPal\Api\Payer;
 use PayPal\Api\Item;
 use PayPal\Api\ItemList;
@@ -12,8 +14,6 @@ use PayPal\Api\Amount;
 use PayPal\Api\Transaction;
 use PayPal\Api\RedirectUrls;
 use PayPal\Api\Payment;
-
-require 'includes/paypal.php';
 
 
 if(isset($_POST['submit'])):

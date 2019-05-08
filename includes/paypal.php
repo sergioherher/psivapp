@@ -1,7 +1,7 @@
 <?php
 
 
-require 'paypal/autoload.php';
+require __DIR__  . '/paypal/autoload.php';
 
 //define('URL_SITIO', 'http://localhost/PSIVAPP/');
 
