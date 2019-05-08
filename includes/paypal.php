@@ -1,0 +1,13 @@
+<?php
+
+
+require 'paypal/autoload.php';
+
+define('URL_SITIO', 'http://localhost/PSIVAPP/');
+
+$apiContext = new \PayPal\Rest\ApiContext(
+      new \PayPal\Auth\OAuthTokenCredential(
+          'Af1ZbSEkurVxJqhzWhZNFCzcb6_Tc9DX-rKHJC3-pmf3eX3iWTbiaY3Oumd6bXLEUsNTsW4N_5sfNyMM',  // ClienteID
+          'EFTi3dd8tBcTFPvSximYH_gDEypgQrmzDffyYL91E-66nWpSEVjxfGiayvazDVaKdqaGYRAvgb0nURLT'  // Secret
+      )
+);
