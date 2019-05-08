@@ -200,3 +200,4 @@
 <?php
 include_once 'templates/footer.php';
 ?>
+<script type="text/javascript" src="js/dashboard-graph.js"></script>

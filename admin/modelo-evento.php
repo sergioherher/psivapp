@@ -16,15 +16,38 @@ $id_registro = $_POST['id_registro'];
 
 if($_POST['registro'] == 'nuevo'){
     try {
-        $stmt = $conn->prepare('INSERT INTO eventos (nombre_evento, fecha_evento, hora_evento, id_cat_evento, id_inv) VALUES ( ?, ?, ?, ? , ? )  ');
-        $stmt->bind_param('sssii', $titulo, $fecha_formateada, $hora_formateada, $categoria_id, $invitado_id);
+
+        $stmt = $conn->prepare('SELECT clave FROM eventos WHERE id_cat_evento = ? ORDER BY clave DESC LIMIT 1;');
+        $stmt->bind_param('i', $categoria_id);
         $stmt->execute();
-        $id_insertado = $stmt->insert_id;
+        $stmt->bind_result($clave);
+       
         if($stmt->affected_rows) {
-            $respuesta = array(
-                'respuesta' => 'exito',
-                'id_insertado' => $id_insertado
-            );
+
+            $stmt->fetch();
+
+            $array_clave = explode("_", $clave);
+            $num_clave = $array_clave[1]+1;
+            $nueva_clave = $array_clave[0]."_".$num_clave;
+
+            $stmt->close();
+
+            $stmt = $conn->prepare("INSERT INTO eventos (nombre_evento, fecha_evento, hora_evento, id_cat_evento, id_inv, clave) VALUES ( ?, ?, ?, ? ,? ,? ) ");
+            $stmt->bind_param('sssiis', $titulo, $fecha_formateada, $hora_formateada, $categoria_id, $invitado_id, $nueva_clave);
+            $stmt->execute();
+
+            $id_insertado = $stmt->insert_id;
+
+            if($stmt->affected_rows) {
+                $respuesta = array(
+                    'respuesta' => 'exito',
+                    'id_insertado' => $id_insertado
+                );
+            } else {
+                $respuesta = array(
+                    'respuesta' => 'error'
+                );
+            }
         } else {
             $respuesta = array(
                 'respuesta' => 'error'

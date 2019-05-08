@@ -37,7 +37,7 @@
                 <tbody>
                         <?php
                             try {
-                                $sql = "SELECT * FROM categoria_Evento";
+                                $sql = "SELECT * FROM categoria_evento";
                                 $resultado = $conn->query($sql);
                             } catch (Exception $e) {
                                 $error = $e->getMessage();

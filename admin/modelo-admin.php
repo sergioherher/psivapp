@@ -11,10 +11,10 @@ if($_POST['registro'] == 'nuevo'){
     $opciones = array(
         'cost' => 12
     );
-    $password_hashed = password_hash($password, PASSWORD_BCRYPT, $opciones);
+    $password_hashed = password_hash($password, PASSWORD_DEFAULT, $opciones);
 
     try {
-        $stmt = $conn->prepare("INSERT INTO admins (usuario, nombre, password) VALUES (?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO admins (usuario, nombre, password, nivel, editado) VALUES (?, ?, ?, 1, NOW())");
         $stmt->bind_param("sss", $usuario, $nombre, $password_hashed);
         $stmt->execute();
         $id_registro = $stmt->insert_id;
@@ -49,7 +49,7 @@ if($_POST['registro'] == 'actualizar'){
                 'cost' => 12
             );
             
-            $hash_password = password_hash($password, PASSWORD_BCRYPT, $opciones);
+            $hash_password = password_hash($password, PASSWORD_DEFAULT, $opciones);
             $stmt = $conn->prepare('UPDATE admins SET usuario = ?, nombre = ?, password = ?, editado = NOW() WHERE id_admin = ? ');
             $stmt->bind_param("sssi", $usuario, $nombre, $hash_password, $id_registro);
         }

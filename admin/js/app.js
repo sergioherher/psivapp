@@ -8,7 +8,7 @@ $(document).ready(function () {
         'pageLength'  : 10,
         'lengthChange': false,
         'searching'   : true,
-        'ordering'    : true,
+        'ordering'    : false,
         'info'        : true,
         'autoWidth'   : false,
         'language' : {
@@ -61,19 +61,5 @@ $(document).ready(function () {
       checkboxClass: 'icheckbox_flat-blue',
       radioClass   : 'iradio_flat-blue'
   });
-  
-  $.getJSON('servicio-registrados.php', function(data) {
-      var line = new Morris.Line({
-        element: 'grafica-registros',
-        resize: true,
-        data: data,
-        xkey: 'fecha',
-        ykeys: ['cantidad'],
-        labels: ['Item 1'],
-        lineColors: ['#3c8dbc'],
-        hideHover: 'auto'
-      });
-  });
-
 
 })

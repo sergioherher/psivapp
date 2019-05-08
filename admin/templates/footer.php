@@ -39,6 +39,6 @@
 <script src="js/login-ajax.js"></script>
 <script src="js/icheck.min.js"></script>
 <script src="../js/cotizador.js"></script>
-<script src="js/app.js?v=0.0.1"></script>
+<script src="js/app.js?v=0.0.3"></script>
 </body>
 </html>
