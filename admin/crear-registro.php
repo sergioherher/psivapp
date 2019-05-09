@@ -120,7 +120,7 @@
                                                                 $sql .= " JOIN invitados ";
                                                                 $sql .= " ON eventos.id_inv = invitados.invitado_id ";
                                                                 $sql .= " ORDER BY eventos.fecha_evento, eventos.id_cat_evento, eventos.hora_evento ";
-                                                                echo $sql;
+                                                                //echo $sql;
                                                                 $resultado = $conn->query($sql);
                                                             } catch (Exception $e) {
                                                                 echo $e->getMessage();
