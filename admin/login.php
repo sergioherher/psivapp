@@ -11,7 +11,7 @@
 
 <div class="login-box">
   <div class="login-logo">
-    <a href="../index.php"><b>GDL</b>WebCamp</a>
+    <a href="../index.php"><b>PSIVAPP</b> Panel de Administración</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
