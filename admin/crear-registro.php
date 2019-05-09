@@ -130,7 +130,7 @@
                                                             while($eventos = $resultado->fetch_assoc()) {
                                                                 
                                                                 $fecha = $eventos['fecha_evento'];
-                                                                setlocale(LC_ALL, 'es_ES.utf8');
+                                                                setlocale(LC_ALL, 'es_CO.utf8');
                                                                 $dia_semana = strftime("%A", strtotime($fecha));
                                                                 
                                                                 $categoria = $eventos['cat_evento'];
