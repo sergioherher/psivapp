@@ -120,7 +120,7 @@
                                                                 $sql .= " JOIN invitados ";
                                                                 $sql .= " ON eventos.id_inv = invitados.invitado_id ";
                                                                 $sql .= " ORDER BY eventos.fecha_evento, eventos.id_cat_evento, eventos.hora_evento ";
-                                                                //echo $sql;
+                                                                echo $sql;
                                                                 $resultado = $conn->query($sql);
                                                             } catch (Exception $e) {
                                                                 echo $e->getMessage();
@@ -130,7 +130,7 @@
                                                             while($eventos = $resultado->fetch_assoc()) {
                                                                 
                                                                 $fecha = $eventos['fecha_evento'];
-                                                                setlocale(LC_ALL, 'es_ES');
+                                                                setlocale(LC_ALL, 'es_ES.utf8');
                                                                 $dia_semana = strftime("%A", strtotime($fecha));
                                                                 
                                                                 $categoria = $eventos['cat_evento'];
