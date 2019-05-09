@@ -108,7 +108,7 @@
       </li>
     <?php endif; ?>
       
-      <li class="treeview">
+      <!--<li class="treeview">
         <a href="#">
           <i class="fa fa-comments" aria-hidden="true"></i>
           <span>Testimoniales</span>
@@ -120,7 +120,7 @@
           <li><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i> Ver Todos</a></li>
           <li><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar</a></li>
         </ul>
-      </li>
+      </li>-->
     </ul>
   </section>
   <!-- /.sidebar -->

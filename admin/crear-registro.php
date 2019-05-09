@@ -130,7 +130,7 @@
                                                             while($eventos = $resultado->fetch_assoc()) {
                                                                 
                                                                 $fecha = $eventos['fecha_evento'];
-                                                                setlocale(LC_ALL, 'es_CO.utf8');
+                                                                setlocale(LC_ALL, 'es_MX.utf8');
                                                                 $dia_semana = strftime("%A", strtotime($fecha));
                                                                 
                                                                 $categoria = $eventos['cat_evento'];
@@ -139,7 +139,8 @@
                                                                     'hora' => $eventos['hora_evento'],
                                                                     'id' => $eventos['evento_id'],
                                                                     'nombre_invitado' => $eventos['nombre_invitado'],
-                                                                    'apellido_invitado' => $eventos['apellido_invitado']
+                                                                    'apellido_invitado' => $eventos['apellido_invitado'],
+                                                                    'clave'=> $eventos['clave']
                                                                 );
                                                                 $eventos_dias[$dia_semana]['eventos'][$categoria][] = $dia;
                                                             }
@@ -157,7 +158,7 @@
                                                                        
                                                                          <?php foreach($evento_dia as $evento) { ?>
                                                                            <label>
-                                                                                <input type="checkbox" class="minimal" name="registro_evento[]" id="<?php echo $evento['id']; ?>" value="<?php echo $evento['id']; ?>">
+                                                                                <input type="checkbox" class="minimal" name="registro_evento[]" id="<?php echo $evento['id']; ?>" value="<?php echo $evento['clave']; ?>">
                                                                                 <time><?php echo $evento['hora']; ?></time> <?php echo $evento['nombre_evento']; ?>
                                                                                 <br>
                                                                                 <span class="autor"><?php echo $evento['nombre_invitado'] . " "  . $evento['apellido_invitado']; ?></span>
