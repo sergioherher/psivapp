@@ -881,6 +881,15 @@ div.resumen input {
   text-align: center;
   display: none;
 }
+
+#texto-modal{
+  font-size: 8pt;
+}
+
+#texto-modal p { 
+  text-align: justify;
+}
+
 /**Calendario**/
 div.calendario h3{
   background-color: #fe4918;

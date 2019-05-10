@@ -57,6 +57,7 @@ $compra->setPaymentMethod('paypal');
 
 
 $articulo = new Item();
+
 /*$articulo->setName($producto)
          ->setCurrency('MXN')
          ->setQuantity(1)

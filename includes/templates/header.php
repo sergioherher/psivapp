@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
         <?php
             $archivo = basename($_SERVER['PHP_SELF']);
             $pagina = str_replace(".php", "", $archivo);
@@ -23,7 +24,7 @@
               echo '<link rel="stylesheet" href="css/lightbox.css">';
             }
         ?>
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/main.css?v=0.0.3">
         <link rel="stylesheet" href="css/colorbox.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
@@ -75,4 +76,4 @@
         <a href="registro.php">Reservaciones</a>
       </nav>
   </div><!--.contenedor-->
-</div><!--.barra-->
+</div>
