@@ -39,7 +39,7 @@
              echo '<script src="js/lightbox.js"></script>';
            }
        ?>
-        <script src="js/main.js?v=0.0.10"></script>
+        <script src="js/main.js?v=0.0.11"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
