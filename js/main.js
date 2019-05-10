@@ -239,17 +239,17 @@ $(function(){
 
   $('#btnRegistro').on('click',function(e){
     e.preventDefault();
-    $('#confirmar_registro').modal('toggle');
+    if($('#total_pedido').val() != 0) {
+      $('#confirmar_registro').modal('toggle');
+    } else {
+      alert("Debe agregar al menos un evento");
+    }
   });
 
   $('#policies_acepted').on('click',function(e){
     e.preventDefault();
-    if($('#total_pedido').val() != 0) {
       $('#confirmar_registro').modal('toggle');
       $('#registro').submit();
-    } else {
-      alert("Debe agregar al menos un evento");
-    }
   });
 
   //ColorBox
