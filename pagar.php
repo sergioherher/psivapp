@@ -100,19 +100,11 @@ foreach($pedidoExtra as $key => $value) {
       }
 }
 
-
-
-
 $listaArticulos = new ItemList();
 $listaArticulos->setItems($arreglo_pedido);
 
-
-
-
 $cantidad = new Amount();
-$cantidad->setCurrency('MXN')
-         ->setTotal($total);
-
+$cantidad->setCurrency('MXN')->setTotal($_POST['total_pedido']);
 
 $transaccion =  new Transaction();
 $transaccion->setAmount($cantidad)
