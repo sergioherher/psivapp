@@ -1,8 +1,6 @@
 $(document).ready(function () {
       $('.sidebar-menu').tree()
       
-
-
       $('#registros').DataTable({
         'paging'      : true,
         'pageLength'  : 10,

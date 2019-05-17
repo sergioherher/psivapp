@@ -10,7 +10,7 @@
 
 
 
-
+<?php if($_SESSION['nivel'] == 1) { ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -52,6 +52,13 @@
                                           <input type="password" class="form-control" id="repetir_password" name="repetir_password" placeholder="Password para Iniciar Sesión">
                                           <span id="resultado_password" class="help-block"></span>
                                     </div>
+                                    <div class="form-group">
+                                          <label for="password">Nivel de Perfil:</label>
+                                          <select name="nivel" class="form-control" id="nivel">
+                                            <option value="0">Usuario</option>
+                                            <option value="1">Administrador</option>
+                                          </select>
+                                    </div>
                               </div>
                               <!-- /.box-body -->
 
@@ -72,6 +79,20 @@
         </div>
   </div>
   <!-- /.content-wrapper -->
+
+<?php } else { ?>
+
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Usted no tiene acceso a esta opción
+        <small>Si desea hacer algún ajuste en este apartado consulte a su administrador del sistema</small>
+      </h1>
+    </section>
+  </div>
+
+<?php } ?>
 
   <?php
           include_once 'templates/footer.php';

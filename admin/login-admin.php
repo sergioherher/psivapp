@@ -14,6 +14,7 @@ if(isset($_POST['login-admin'])) {
             if($existe) {
                 if(password_verify($password, $password_admin)) {
                     session_start();
+                    $_SESSION['id_admin'] = $id_admin;
                     $_SESSION['usuario'] = $usuario_admin;
                     $_SESSION['nombre'] = $nombre_admin;
                     $_SESSION['nivel'] = $nivel;

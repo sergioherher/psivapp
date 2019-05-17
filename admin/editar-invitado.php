@@ -21,7 +21,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Crear Invitados
+        Editar Invitados
         <small>llena el formulario para añadir un invitado</small>
       </h1>
     </section>
@@ -34,7 +34,7 @@
                   <!-- Default box -->
                   <div class="box">
                     <div class="box-header with-border">
-                      <h3 class="box-title">Crear Invitado</h3>
+                      <h3 class="box-title">Editar Invitado</h3>
                     </div>
                     <div class="box-body">
                         <?php
