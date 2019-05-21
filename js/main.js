@@ -288,6 +288,7 @@ $(function(){
     e.preventDefault();
       $('#seleccionar_metodo_de_pago').modal('toggle');
       $('#tipo_de_pago').val(1);
+      alert($('#tipo_de_pago').val());
       $('#registro').submit();
   });
 
