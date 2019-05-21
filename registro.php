@@ -179,12 +179,33 @@
                            </div>
                            <input type="hidden" name="total_pedido" id="total_pedido" value="0">
                            <input type="hidden" name="enviado">
+                           <input type="hidden" name="tipo_de_pago" value="0">
                            <input type="button" id="btnRegistro" class="button" value="Pagar">
                          </div><!--.total-->
                        </div><!--.caja-->
                      </div><!--#resumen-->
      </div><!--#paquetes-->
    </form>
+
+   <div id="seleccionar_metodo_de_pago" class="modal" tabindex="-2" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Seleccione el método de pago que desea utilizar</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="texto-modal">
+          <p>El método de pago Online se tramitará via PayPal, el método offline generará un archivo PDF con su balance</p>
+        </div>
+        <div class="modal-footer">
+          <button id="online_payment" class="btn btn-success">Pago Online</button>
+          <button id="offline_payment" class="btn btn-primary">Pago Offline</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
    <div id="confirmar_registro" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

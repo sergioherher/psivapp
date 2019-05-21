@@ -274,6 +274,20 @@ $(function(){
   $('#policies_acepted').on('click',function(e){
     e.preventDefault();
       $('#confirmar_registro').modal('toggle');
+      $('#seleccionar_metodo_de_pago').modal('toggle');
+  });
+
+  $('#online_payment').on('click',function(e){
+    e.preventDefault();
+      $('#seleccionar_metodo_de_pago').modal('toggle');
+      $('#tipo_de_pago').val(0);
+      $('#registro').submit();
+  });
+
+  $('#offline_payment').on('click',function(e){
+    e.preventDefault();
+      $('#seleccionar_metodo_de_pago').modal('toggle');
+      $('#tipo_de_pago').val(1);
       $('#registro').submit();
   });
 
