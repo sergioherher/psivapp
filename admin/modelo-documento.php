@@ -2,18 +2,12 @@
 
 include_once 'funciones/funciones.php';
 
-$currentDir = getcwd();
-$uploadDirectory = "/documentos/";
-
-$errors = []; // Store all foreseen and unforseen errors here
-
-$extensiones = ['pdf','doc','docx']; // Get all the file extensions
-$descripcion = $_POST['descripcion_documento'];
-$id_admin = $_POST['id_admin'];
-
-$id_registro = $_POST['id_registro'];
+$extensiones = ['pdf','doc','docx'];
 
 if($_POST['registro'] == 'nuevo'){
+
+    $descripcion = $_POST['descripcion_documento'];
+    $id_admin = $_POST['id_admin'];
     
     $directorio = "documentos/";
     
@@ -22,7 +16,7 @@ if($_POST['registro'] == 'nuevo'){
     }
     
     if(move_uploaded_file($_FILES['archivo_documento']['tmp_name'], $directorio . $_FILES['archivo_documento']['name'])) {
-        $documento_url = $directorio.$_FILES['archivo_documento']['name'];
+        $documento_url = $_FILES['archivo_documento']['name'];
         $documento_resultado = "Se subió correctamente";
     } else {
         $respuesta = array(
@@ -60,6 +54,11 @@ if($_POST['registro'] == 'nuevo'){
 
 if($_POST['registro'] == 'actualizar'){
     
+    $descripcion = $_POST['descripcion_documento'];
+    $id_admin = $_POST['id_admin'];
+
+    $id_registro = $_POST['id_registro'];
+    
     $directorio = "documentos/";
     
     if(!is_dir($directorio)){
@@ -67,7 +66,7 @@ if($_POST['registro'] == 'actualizar'){
     }
     
     if(move_uploaded_file($_FILES['archivo_documento']['tmp_name'], $directorio . $_FILES['archivo_documento']['name'])) {
-        $documento_url = $directorio.$_FILES['archivo_documento']['name'];
+        $documento_url = $_FILES['archivo_documento']['name'];
         $documento_resultado = "Se subió correctamente";
     } else {
         $respuesta = array(
@@ -116,27 +115,55 @@ if($_POST['registro'] == 'actualizar'){
 if($_POST['registro'] == 'eliminar'){
 
     $id_borrar = $_POST['id'];
+
+    $directorio = "documentos/";
+
+    $stmt = $conn->prepare('SELECT * FROM documentos WHERE id = ? ');
+    $stmt->bind_param('i', $id_borrar);
+    $stmt->execute();
+    $stmt->bind_result($id, $url, $nombre, $id_admin);
+
+    if($stmt->affected_rows) {
+        $existe = $stmt->fetch();
+        if($existe) {
+            unlink($directorio.$url);
+            $respuesta1 = array(
+                'respuesta1' => 'exitoso',
+                'observacion' => "Archivo eliminado"
+            );
+        } else {
+            $respuesta1 = array(
+                'respuesta1' => 'error'
+            );
+        }
+    }
+
+    $stmt->close();
     
     try {
         $stmt = $conn->prepare('DELETE FROM documentos WHERE id = ? ');
         $stmt->bind_param('i', $id_borrar);
         $stmt->execute();
         if($stmt->affected_rows) {
-            $respuesta = array(
-                'respuesta' => 'exito',
+            $respuesta2 = array(
+                'respuesta2' => 'exito',
                 'id_eliminado' => $id_borrar
             );
         } else {
-            $respuesta = array(
-                'respuesta' => 'error'
+            $respuesta2 = array(
+                'respuesta2' => 'error'
             );
         }
     } catch (Exception $e) {
-        $respuesta = array(
-            'respuesta' => $e->getMessage()
+        $respuesta2 = array(
+            'respuesta2' => $e->getMessage()
         );
     }
-    header("Location:lista-documentos.php");
+
+    $respuesta = array_merge($respuesta1, $respuesta2);
+
+    $stmt->close();
+    $conn->close();
     die(json_encode($respuesta));
 }
 

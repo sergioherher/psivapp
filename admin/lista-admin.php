@@ -11,7 +11,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
           <h1>
-            Listado de Administradores
+            Listado de Usuarios
             <small></small>
           </h1>
     </section>

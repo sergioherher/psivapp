@@ -856,11 +856,12 @@ div.extras div.orden{
 div.extras div.orden input{
   margin:  10px 0 0 0;
 }
-div.resument div.total {
+div.resumen div.total {
   float: right;
   width: 50%;
   padding: 30px;
 }
+
 div.resumen input {
   display: block;
   margin: 10px auto;

@@ -95,7 +95,7 @@ $(document).ready(function() {
                     success:function(data) {
                         console.log(data);
                         var resultado = JSON.parse(data);
-                        if(resultado.respuesta == 'exito') {
+                        if(resultado.respuesta2 == 'exito') {
                             swal(
                               'Eliminado!',
                               'Registro Eliminado.',

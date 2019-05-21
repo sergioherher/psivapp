@@ -24,7 +24,7 @@
               echo '<link rel="stylesheet" href="css/lightbox.css">';
             }
         ?>
-        <link rel="stylesheet" href="css/main.css?v=0.0.3">
+        <link rel="stylesheet" href="css/main.css?v=0.0.4">
         <link rel="stylesheet" href="css/colorbox.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>

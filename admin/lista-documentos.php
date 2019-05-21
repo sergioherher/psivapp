@@ -30,6 +30,9 @@
                 <thead>
                 <tr>
                   <th>Archivo</th>
+                  <?php if($_SESSION['nivel'] == 1) { ?>
+                    <th>Usuario</th>
+                  <?php } ?>
                   <th>Acciones</th>
                 </tr>
                 </thead>
@@ -37,10 +40,10 @@
                         <?php
                             try {
                                 if($_SESSION['nivel'] == 0) {
-                                  $sql = "SELECT * FROM documentos WHERE id_admin =".$_SESSION['id_admin'];
+                                  $sql = "SELECT documentos.id AS id, documentos.id_admin AS id_admin, documentos.nombre AS archivo, documentos.url AS url FROM documentos WHERE id_admin =".$_SESSION['id_admin'];
                                 }
                                 else {
-                                  $sql = "SELECT * FROM documentos";
+                                  $sql = "SELECT documentos.id AS id, documentos.id_admin AS id_admin, documentos.nombre AS archivo, documentos.url AS url, admins.nombre AS usuario FROM documentos INNER JOIN admins ON documentos.id_admin = admins.id_admin";
                                 }
                                 $resultado = $conn->query($sql);
                             } catch (Exception $e) {
@@ -50,7 +53,10 @@
                             while($documento = $resultado->fetch_assoc() ) { ?>
                                 
                                 <tr>
-                                    <td><a href="<?php echo $documento['url']; ?>"><?php echo $documento['nombre'];  ?></a></td>
+                                    <td><a href="<?php echo "documentos/".$documento['url']; ?>"><?php echo $documento['archivo'];  ?></a></td>
+                                    <?php if($_SESSION['nivel'] == 1) { ?>
+                                    <td><?php echo $documento['usuario'];  ?></td>
+                                    <?php } ?>
                                     <td>
                                         <a href="editar-documento.php?id=<?php echo $documento['id'] ?>" class="btn bg-orange btn-flat margin">
                                             <i class="fa fa-pencil"></i>

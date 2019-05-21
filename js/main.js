@@ -1,8 +1,6 @@
 (function() {
     "use strict";
 
-    console.log('aqui');
-
     document.addEventListener('DOMContentLoaded', function(){
 
   if(document.getElementById('calcular')) {
@@ -122,6 +120,33 @@
               botonRegistro.disabled = false;
               document.getElementById('total_pedido').value=  totalPagar;
 
+              var otro_nombre = document.getElementById('nombre').value;
+              var otro_apellido = document.getElementById('apellido').value;
+              var otro_email = document.getElementById('email').value;
+
+              var datos = {
+                           "nombre": otro_nombre,
+                           "apellido": otro_apellido,
+                           "email": otro_email,
+                           "boletosDia":boletosDia,
+                           "boletos2Dias":boletos2Dias,
+                           "boletoCompleto":boletoCompleto,
+                           "cantCamisas":cantCamisas,
+                           "cantEtiquetas":cantEtiquetas
+                          };
+
+              $.ajax({
+                  type: "POST",
+                  data: datos,
+                  url: "includes/funciones/guardar_cookie.php",
+                  dataType: 'json',
+                  success: function(data) {
+                    console.log(data);
+                  },
+                  error: function(data) {
+                    console.log(data);
+                  }
+              })
 
             }
         }
