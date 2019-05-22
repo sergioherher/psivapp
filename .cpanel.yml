@@ -2,4 +2,31 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/psivappc/public_html/
-    - /bin/cp -R * $DEPLOYPATH
+    - export DEPLOYPATH_FUNCTIONS=/home/psivappc/public_html/includes/funciones/
+    - export DEPLOYPATH_INCLUDES=/home/psivappc/public_html/includes/
+    - /bin/cp -R admin $DEPLOYPATH
+    - /bin/cp -R css $DEPLOYPATH
+    - /bin/cp -R database $DEPLOYPATH
+    - /bin/cp -R doc $DEPLOYPATH
+    - /bin/cp -R fonts $DEPLOYPATH
+    - /bin/cp -R images $DEPLOYPATH
+    - /bin/cp -R img $DEPLOYPATH
+    - /bin/cp includes/funciones/cargar_cookies.php $DEPLOYPATH_FUNCTIONS
+    - /bin/cp includes/funciones/funciones.php $DEPLOYPATH_FUNCTIONS
+    - /bin/cp includes/funciones/guardar_cookies.php $DEPLOYPATH_FUNCTIONS
+    - /bin/cp -R includes/mpdf $DEPLOYPATH_INCLUDES
+    - /bin/cp -R includes/paypal $DEPLOYPATH_INCLUDES
+    - /bin/cp -R includes/reportes $DEPLOYPATH_INCLUDES
+    - /bin/cp -R includes/templates $DEPLOYPATH_INCLUDES
+    - /bin/cp includes/paypal.php $DEPLOYPATH_INCLUDES
+    - /bin/cp includes/PSIVA_politica_de_privacidad.pdf $DEPLOYPATH_INCLUDES
+    - /bin/cp -R js $DEPLOYPATH
+    - /bin/cp -R video $DEPLOYPATH
+    - /bin/cp -R webfonts $DEPLOYPATH
+    - /bin/cp calendario.php $DEPLOYPATH
+    - /bin/cp conferencia.php $DEPLOYPATH
+    - /bin/cp invitados.php $DEPLOYPATH
+    - /bin/cp pagar.php $DEPLOYPATH
+    - /bin/cp pago_finalizado.php $DEPLOYPATH
+    - /bin/cp validar_registro.php $DEPLOYPATH
+    - /bin/cp ver_registrados.php $DEPLOYPATH
