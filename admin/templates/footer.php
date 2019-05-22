@@ -26,7 +26,7 @@
 
 <script src="js/sweetalert2.min.js"></script>
 
-<script src="js/admin-ajax.js?v=0.0.2"></script>
+<script src="js/admin-ajax.js?v=0.0.21"></script>
 <script src="js/bootstrap-datepicker.min.js"></script>
 <script src="js/select2.full.min.js"></script>
 <script src="js/bootstrap-timepicker.min.js"></script>

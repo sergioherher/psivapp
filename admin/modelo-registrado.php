@@ -106,3 +106,34 @@ if($_POST['registro'] == 'eliminar'){
     die(json_encode($respuesta));
 }
 
+if($_POST['registro'] == 'pagado'){
+    
+
+    $id_pago = $_POST['id'];
+    $pagado = $_POST['pagado'];
+    
+    try {
+        $stmt = $conn->prepare("UPDATE `registrados` SET `pagado` = ? WHERE `ID_registrado` =  ? ");
+        $stmt->bind_param("ii", $pagado, $id_pago);
+        $stmt->execute();
+        if($stmt->affected_rows) {
+            $respuesta = array(
+                'respuesta' => 'exito',
+                'id_pagado' => $id_pago,
+                'pagado' => $pagado
+            );
+        } else {
+            $respuesta = array(
+                'respuesta' => 'error'
+            );
+        }
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        $respuesta = array(
+            'respuesta' => $e->getMessage()
+        );
+    }
+    die(json_encode($respuesta));
+}
+

@@ -57,9 +57,9 @@
                                         <?php echo $registrado['nombre_registrado'] . " " . $registrado['apellido_registrado']; 
                                              $pagado = $registrado['pagado'];
                                              if($pagado) {
-                                                  echo '<span class="badge bg-green">Pagado</span>';
+                                                  echo '<span class="badge bg-green badge-estado-pago-'.$registrado['ID_Registrado'].'">Pagado</span>';
                                              } else {
-                                                 echo '<span class="badge bg-red">No Pagado</span>';
+                                                 echo '<span class="badge bg-red badge-estado-pago-'.$registrado['ID_Registrado'].'">No Pagado</span>';
                                              }
                                         
                                         ?>
@@ -115,7 +115,16 @@
                                         <a href="#" data-id="<?php echo $registrado['ID_Registrado']; ?>" data-tipo="registrado" class="btn bg-maroon bnt-flat margin borrar_registro">
                                             <i class="fa fa-trash"></i>
                                         </a>
-                                        
+                                        <?php $pagado = $registrado['pagado'];
+                                        if($pagado) { ?>
+                                              <a href="#" title="Cambiar a no pagado" data-id="<?php echo $registrado['ID_Registrado']; ?>" data-tipo="registrado" data-pagado="0" class="btn bg-red bnt-flat margin marcar_pago cambiar-estado-pago-<?php echo $registrado['ID_Registrado']; ?>">
+                                                  <i class="fa fa-times"></i>
+                                              </a>
+                                        <?php } else { ?>
+                                             <a href="#" title="Cambiar a pagado" data-id="<?php echo $registrado['ID_Registrado']; ?>" data-tipo="registrado" data-pagado="1" class="btn bg-green bnt-flat margin marcar_pago cambiar-estado-pago-<?php echo $registrado['ID_Registrado']; ?>">
+                                                  <i class="fa fa-dollar"></i>
+                                              </a>
+                                        <?php } ?>
                                     </td>
                                 </tr>
                             <?php }  ?>
