@@ -74,6 +74,7 @@
               <div class="columna-producto"> Total </div>
             </div>
             <?php
+            $acumulado_boletos = 0;
               foreach($numero_boletos as $key => $value) {
                     if( (int) $value['cantidad'] > 0 ) {
                         ?>
@@ -84,6 +85,7 @@
                           <div class="columna-producto"> $ <?=$value['precio']*$value['cantidad']?> </div>
                         </div>
                         <?php
+                        $acumulado_boletos += $value['precio']*$value['cantidad'];
                     }
               }
             ?>
@@ -100,6 +102,7 @@
               <div class="columna-producto"> Total </div>
             </div>
             <?php
+                $acumulado_extra = 0;
                 foreach($pedidoExtra as $key => $value) {
                     if( (int) $value['cantidad'] > 0 ) {
                           if($key == 'camisas') {
@@ -115,9 +118,25 @@
                           <div class="columna-producto"> $ <?=$precio*$value['cantidad']?> </div>
                         </div>
                         <?php
+                        $acumulado_extra += $precio*$value['cantidad'];
                     }
               }
             ?>
+        </div>
+        <hr> 
+        <div class="datos-factura">
+            <div class="fila-productos">
+                <div class="columna-producto">&nbsp;</div>
+                <div class="columna-producto">&nbsp;</div>
+                <div class="columna-producto">&nbsp;</div>
+                <div class="columna-producto"> Total </div>
+            </div>
+            <div class="fila-productos">
+                <div class="columna-producto">&nbsp;</div>
+                <div class="columna-producto">&nbsp;</div>
+                <div class="columna-producto">&nbsp;</div>
+                <div class="columna-producto">$ <?=$acumulado_extra+$acumulado_boletos?> </div>
+            </div>
         </div>
     </div>
 </body>

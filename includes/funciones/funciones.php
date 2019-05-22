@@ -7,8 +7,6 @@ function productos_json(&$boletos, &$camisas = 0, &$etiquetas = 0){
       unset($boletos['2dias']['precio']);
 
       $total_boletos = array_combine($dias, $boletos);
-
-
       
       $camisas = (int) $camisas;
       if($camisas > 0):
