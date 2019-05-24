@@ -1,8 +1,17 @@
-<?php include_once 'includes/templates/header.php'; ?>
+<?php 
+session_start();
+$cerrar_sesion = $_GET['cerrar_sesion'];
+if($cerrar_sesion) {
+  session_destroy();
+}
+if(isset($_SESSION['usuario_cliente'])) {
+  header('location:registro.php');
+}
+include_once 'includes/templates/header.php'; ?>
 
  <section class="seccion contenedor">
    <h2><a name="link_registro" id="link_registro">Ingresar</a></h2>
-   <form id="ingresar" class="ingresar" action="validar_login.php" method="post">
+   <form id="ingresar" class="ingresar" action="modelo-cliente.php" method="post">
     <center>
        <div id="datos_usuario"class="ingreso caja clearfix" style="width: 50%">
          <div class="campo_ingreso row">
@@ -10,7 +19,7 @@
               <label for="nombre">Usuario:</label>
             </div>
             <div class="col-8">
-              <input autofocus size="40" type="text" id="nombre" name="nombre" placeholder="Nickname">
+              <input autofocus size="40" type="text" id="usuario" name="usuario" placeholder="Nickname">
             </div>
          </div>
          <div class="campo_ingreso row">
@@ -18,13 +27,14 @@
            <label for="password">Contraseña:</label>
           </div>
           <div class="col-8">
-           <input type="text" size="40" id="password" name="password">
+           <input type="password" size="40" id="password" name="password">
           </div>
          </div>
          <div class="campo_ingreso row">
           <div class="col-9">
           </div>
           <div class="col-3">
+           <input type="hidden" id="registro" name="registro" value="ingresar">
            <button type="submit" class="btn btn-primary">Ingresar</button>
           </div>
          </div>

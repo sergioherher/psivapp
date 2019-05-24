@@ -1,4 +1,6 @@
-<?php include_once 'includes/templates/header.php'; ?>
+<?php 
+include_once 'includes/sesiones.php';
+include_once 'includes/templates/header.php'; ?>
 <?php include_once 'includes/funciones/cargar_cookies.php'; ?>
 
  <section class="seccion contenedor">
@@ -7,15 +9,15 @@
      <div  id="datos_usuario"class="registro caja clearfix">
        <div class="campo">
          <label for="nombre">Nombre:</label>
-         <input type="text" id="nombre" name="nombre" placeholder="Tu Nombre" value="<?=$nombre?>">
+         <input type="text" id="nombre" disabled name="nombre" placeholder="Tu Nombre" value="<?=$_SESSION['nombre_cliente']?>">
        </div>
        <div class="campo">
          <label for="apellido">Apellido:</label>
-         <input type="text" id="apellido" name="apellido" placeholder="Tu Apellido" value="<?=$apellido?>">
+         <input type="text" id="apellido" disabled name="apellido" placeholder="Tu Apellido" value="<?=$_SESSION['apellido_cliente']?>">
        </div>
        <div class="campo">
          <label for="email">Email:</label>
-         <input type="email" id="email" name="email" placeholder="Tu Email" value="<?=$email?>">
+         <input type="email" id="email" disabled name="email" placeholder="Tu Email" value="<?=$_SESSION['email_cliente']?>">
        </div>
        <div id="error"></div>
      </div><!--#datos_usuario-->
@@ -180,6 +182,7 @@
            <input type="hidden" name="total_pedido" id="total_pedido" value="0">
            <input type="hidden" name="enviado">
            <input type="hidden" id="tipo_de_pago" name="tipo_de_pago" value="0">
+           <input type="hidden" id="id_cliente" name="id_cliente" value="<?=$_SESSION['id_cliente']?>">
            <input type="button" id="btnRegistro" class="button" value="Pagar">
          </div><!--.total-->
        </div><!--.caja-->

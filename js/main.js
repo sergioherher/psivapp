@@ -123,6 +123,7 @@
               var otro_nombre = document.getElementById('nombre').value;
               var otro_apellido = document.getElementById('apellido').value;
               var otro_email = document.getElementById('email').value;
+              var id_cliente = document.getElementById('id_cliente').value;
 
               var datos = {
                            "nombre": otro_nombre,

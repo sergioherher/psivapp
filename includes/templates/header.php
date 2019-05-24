@@ -75,5 +75,8 @@
         <a href="invitados.php">Invitados</a>
         <a href="login.php">Reservaciones</a>
       </nav>
+      <nav class="pull-right">
+        <a href="login.php?cerrar_sesion=true"><i class="fa fa-user"></i>Cerrar Sesión</a>
+      </nav>
   </div><!--.contenedor-->
 </div>
