@@ -39,14 +39,20 @@ include_once 'includes/templates/header.php'; ?>
           </div>
          </div>
 
-         <div id="error"></div>
+         <div id="row error" style="color: red; <?php if(isset($_GET['existe'])) { echo "display:block; "; }?>">
+           <div class="col-12">
+            <?php if(isset($_GET['existe'])) { echo "Usuario o password inválido"; }?>
+           </div>
+          </div>
        </div><!--#datos_usuario-->
      </center>
    </form>
+   <!--
    <div class="row">
     <div class="col-4"></div>
     <div class="col-8">¿Olvidó su contraseña?  <a href="recuperar_cliente.php">Recupérela</a></div>
    </div>
+    -->
    <div class="row">
     <div class="col-4"></div>
     <div class="col-8">¿Su primera vez en esta página? Regístrese <a href="registrar_cliente.php">aquí</a></div>

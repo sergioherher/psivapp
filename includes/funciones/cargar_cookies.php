@@ -1,49 +1,40 @@
 <?php
 
-if(isset($_COOKIE["psivapp_opciones_registro-boletosDia"])) {
-	$boletosDia = $_COOKIE["psivapp_opciones_registro-boletosDia"];
+$nombre_cookie_boletosDia = "psivapp_".$_SESSION['id_cliente']."-boletosDia";
+$nombre_cookie_boletos2Dias = "psivapp_".$_SESSION['id_cliente']."-boletos2Dias";
+$nombre_cookie_boletoCompleto = "psivapp_".$_SESSION['id_cliente']."-boletoCompleto";
+$nombre_cookie_cantCamisas = "psivapp_".$_SESSION['id_cliente']."-cantCamisas";
+$nombre_cookie_cantEtiquetas = "psivapp_".$_SESSION['id_cliente']."-cantEtiquetas";
+
+
+if(isset($_COOKIE[$nombre_cookie_boletosDia])) {
+	$boletosDia = $_COOKIE[$nombre_cookie_boletosDia];
 } else {
 	$boletosDia = 0;
 }
 
-if(isset($_COOKIE["psivapp_opciones_registro-boletos2Dias"])) {
-	$boletos2Dias = $_COOKIE["psivapp_opciones_registro-boletos2Dias"];
+if(isset($_COOKIE[$nombre_cookie_boletos2Dias])) {
+	$boletos2Dias = $_COOKIE[$nombre_cookie_boletos2Dias];
 } else {
 	$boletos2Dias = 0;
 }
 
-if(isset($_COOKIE["psivapp_opciones_registro-boletoCompleto"])) {
-	$boletoCompleto = $_COOKIE["psivapp_opciones_registro-boletoCompleto"];
+if(isset($_COOKIE[$nombre_cookie_boletoCompleto])) {
+	$boletoCompleto = $_COOKIE[$nombre_cookie_boletoCompleto];
 } else {
 	$boletoCompleto = 0;
 }
 
-if(isset($_COOKIE["psivapp_opciones_registro-cantCamisas"])) {
-	$cantCamisas = $_COOKIE["psivapp_opciones_registro-cantCamisas"];
+if(isset($_COOKIE[$nombre_cookie_cantCamisas])) {
+	$cantCamisas = $_COOKIE[$nombre_cookie_cantCamisas];
 } else {
 	$cantCamisas = 0;
 }
 
-if(isset($_COOKIE["psivapp_opciones_registro-cantEtiquetas"])) {
-	$cantEtiquetas = $_COOKIE["psivapp_opciones_registro-cantEtiquetas"];
+if(isset($_COOKIE[$nombre_cookie_cantEtiquetas])) {
+	$cantEtiquetas = $_COOKIE[$nombre_cookie_cantEtiquetas];
 } else {
 	$cantEtiquetas = 0;
 }
 
-if(isset($_COOKIE["psivapp_opciones_registro-nombre"])) {
-	$nombre = $_COOKIE["psivapp_opciones_registro-nombre"];
-} else {
-	$nombre = "";
-}
-
-if(isset($_COOKIE["psivapp_opciones_registro-apellido"])) {
-	$apellido = $_COOKIE["psivapp_opciones_registro-apellido"];
-} else {
-	$apellido = "";
-}
-
-if(isset($_COOKIE["psivapp_opciones_registro-email"])) {
-	$email = $_COOKIE["psivapp_opciones_registro-email"];
-} else {
-	$email = "";
-}
+?>

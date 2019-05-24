@@ -73,10 +73,10 @@
         <a href="conferencia.php">Conferencias</a>
         <a href="calendario.php">Calendario</a>
         <a href="invitados.php">Invitados</a>
+        <?php if(isset($_SESSION['usuario_cliente'])) { ?>
+        <a href="login.php?cerrar_sesion=true"><i class="fa fa-user"></i> Cerrar Sesión</a>
+        <?php } ?>
         <a href="login.php">Reservaciones</a>
-      </nav>
-      <nav class="pull-right">
-        <a href="login.php?cerrar_sesion=true"><i class="fa fa-user"></i>Cerrar Sesión</a>
       </nav>
   </div><!--.contenedor-->
 </div>

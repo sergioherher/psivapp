@@ -120,15 +120,10 @@
               botonRegistro.disabled = false;
               document.getElementById('total_pedido').value=  totalPagar;
 
-              var otro_nombre = document.getElementById('nombre').value;
-              var otro_apellido = document.getElementById('apellido').value;
-              var otro_email = document.getElementById('email').value;
               var id_cliente = document.getElementById('id_cliente').value;
 
               var datos = {
-                           "nombre": otro_nombre,
-                           "apellido": otro_apellido,
-                           "email": otro_email,
+                           "id_cliente":id_cliente,
                            "boletosDia":boletosDia,
                            "boletos2Dias":boletos2Dias,
                            "boletoCompleto":boletoCompleto,

@@ -9,15 +9,15 @@ include_once 'includes/templates/header.php'; ?>
      <div  id="datos_usuario"class="registro caja clearfix">
        <div class="campo">
          <label for="nombre">Nombre:</label>
-         <input type="text" id="nombre" disabled name="nombre" placeholder="Tu Nombre" value="<?=$_SESSION['nombre_cliente']?>">
+         <input type="text" id="nombre" readonly name="nombre" placeholder="Tu Nombre" value="<?=$_SESSION['nombre_cliente']?>">
        </div>
        <div class="campo">
          <label for="apellido">Apellido:</label>
-         <input type="text" id="apellido" disabled name="apellido" placeholder="Tu Apellido" value="<?=$_SESSION['apellido_cliente']?>">
+         <input type="text" id="apellido" readonly name="apellido" placeholder="Tu Apellido" value="<?=$_SESSION['apellido_cliente']?>">
        </div>
        <div class="campo">
          <label for="email">Email:</label>
-         <input type="email" id="email" disabled name="email" placeholder="Tu Email" value="<?=$_SESSION['email_cliente']?>">
+         <input type="email" id="email" readonly name="email" placeholder="Tu Email" value="<?=$_SESSION['email_cliente']?>">
        </div>
        <div id="error"></div>
      </div><!--#datos_usuario-->

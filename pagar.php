@@ -21,6 +21,7 @@ $tipo_de_pago = $_POST['tipo_de_pago'];
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $email = $_POST['email'];
+$cliente_id = $_POST['id_cliente'];
 $regalo = $_POST['regalo'];
 $total = $_POST['total_pedido'];
 $fecha = date('Y-m-d H:i:s');
@@ -40,8 +41,8 @@ $registro = eventos_json($eventos);
 
 try {
   require_once('includes/funciones/bd_conexion.php');
-  $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado) VALUES (?,?,?,?,?,?,?,?)");
-  $stmt->bind_param("ssssssis", $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total);
+  $stmt = $conn->prepare("INSERT INTO registrados (cliente_id, nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado) VALUES (?,?,?,?,?,?,?,?,?)");
+  $stmt->bind_param("sssssssis", $cliente_id, $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total);
   $stmt->execute();
   $ID_registro = $stmt->insert_id;
   $stmt->close();

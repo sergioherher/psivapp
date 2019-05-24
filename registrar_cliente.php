@@ -53,9 +53,12 @@
            <button type="submit" class="btn btn-primary">Registrarse</button>
           </div>
          </div>
-         <div id="row error" style="color: red; <?php if(isset($_GET['existe'])) { echo "display:block; "; }?>">
-          <div class="col-12"><?php if(isset($_GET['existe'])) { echo "El usuario ya existe, por favor escriba uno diferente"; }?>
-            </div>
+         <div id="row error" style="color: red; <?php if(isset($_GET['existe']) || isset($_GET['vacio'])) { echo "display:block; "; }?>">
+           <div class="col-12">
+            <?php if(isset($_GET['existe'])) { echo "El usuario ya existe, por favor escriba uno diferente"; }?>
+            <?php if(isset($_GET['vacio']) && isset($_GET['campo'])) { echo "El campo ".$_GET['campo']." no puede quedar vacío"; }?>
+            <?php if(isset($_GET['invalido']) && isset($_GET['campo'])) { echo "El campo ".$_GET['campo']." no debe contener espacios ni caracteres especiales"; }?>
+           </div>
           </div>
        </div><!--#datos_usuario-->
      </center>
@@ -64,10 +67,11 @@
     <div class="col-4"></div>
     <div class="col-8">¿Ya tiene una cuenta?  <a href="login.php">Ingrese</a></div>
    </div>
+   <!--
    <div class="row">
     <div class="col-4"></div>
     <div class="col-8">¿Olvidó su contraseña?  <a href="recuperar_cliente.php">Recupérela</a></div>
-   </div>
+   </div>-->
  </section>
 
 <?php include_once 'includes/templates/footer.php'; ?>
