@@ -73,7 +73,7 @@
         <a href="conferencia.php">Conferencias</a>
         <a href="calendario.php">Calendario</a>
         <a href="invitados.php">Invitados</a>
-        <a href="registro.php">Reservaciones</a>
+        <a href="login.php">Reservaciones</a>
       </nav>
   </div><!--.contenedor-->
 </div>

@@ -125,7 +125,7 @@
                 <li>5 Talleres</li>
                 <li>Bocadillos Gratis</li>
               </ul>
-              <a href="registro.php#link_registro" class="button hollow">Comprar</a>
+              <a href="login.php#link_registro" class="button hollow">Comprar</a>
             </div>
           </li>
           <li>
@@ -137,7 +137,7 @@
                 <li>Todas los Talleres</li>
                 <li>Bocadillos Gratis</li>
               </ul>
-              <a href="registro.php#link_registro" class="button">Comprar</a>
+              <a href="login.php#link_registro" class="button">Comprar</a>
             </div>
           </li>
           <li>
@@ -149,7 +149,7 @@
                 <li>10 Talleres</li>
                 <li>Bocdillos Gratis</li>
               </ul>
-              <a href="registro.php#link_registro" class="button hollow">Comprar</a>
+              <a href="login.php#link_registro" class="button hollow">Comprar</a>
             </div>
           </li>
         </ul>

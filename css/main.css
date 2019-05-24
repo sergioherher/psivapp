@@ -783,6 +783,7 @@ form.registro label{
   margin-bottom: 5px;
   font-weight: bold;
 }
+
 h4{
   text-align: center;
   text-transform: uppercase;
@@ -796,6 +797,7 @@ div.caja{
   padding: 10px;
   margin:10px;
 }
+
 div.campo{
   padding: 10px;
 }
