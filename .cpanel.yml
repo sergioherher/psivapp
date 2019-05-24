@@ -19,6 +19,7 @@ deployment:
     - /bin/cp -R includes/reportes $DEPLOYPATH_INCLUDES
     - /bin/cp -R includes/templates $DEPLOYPATH_INCLUDES
     - /bin/cp includes/paypal.php $DEPLOYPATH_INCLUDES
+    - /bin/cp includes/sesiones.php $DEPLOYPATH_INCLUDES
     - /bin/cp includes/PSIVA_politica_de_privacidad.pdf $DEPLOYPATH_INCLUDES
     - /bin/cp -R js $DEPLOYPATH
     - /bin/cp -R video $DEPLOYPATH
@@ -30,3 +31,7 @@ deployment:
     - /bin/cp pago_finalizado.php $DEPLOYPATH
     - /bin/cp validar_registro.php $DEPLOYPATH
     - /bin/cp ver_registrados.php $DEPLOYPATH
+    - /bin/cp modelo-cliente.php $DEPLOYPATH
+    - /bin/cp login.php $DEPLOYPATH
+    - /bin/cp registro.php $DEPLOYPATH
+    - /bin/cp registrar_cliente.php $DEPLOYPATH
