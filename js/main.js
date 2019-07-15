@@ -1,9 +1,19 @@
+$(document).ready(function(){
+  NProgress.done();
+  $('.sidenav').sidenav();
+});
+
+NProgress.configure({ showSpinner: false });
+
+NProgress.start();
+
 (function() {
+
     "use strict";
 
     document.addEventListener('DOMContentLoaded', function(){
 
-  if(document.getElementById('calcular')) {
+      if(document.getElementById('calcular')) {
 
 
         var regalo = document.getElementById('regalo');
@@ -288,6 +298,6 @@ $(function(){
   });
 
   //ColorBox
-  $('.invitado-info').colorbox({inline:true, width:"50%"});
+  //$('.invitado-info').colorbox({inline:true, width:"50%"});
 
 });

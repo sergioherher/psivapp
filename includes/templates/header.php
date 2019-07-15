@@ -15,7 +15,10 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans" rel="stylesheet">
         <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" /> -->
-        <script rel="stylesheet" href="css/materialize.min.css"/>
+        <link rel="stylesheet" href="css/materialize.min.css"/>
+        <link rel="stylesheet" href="css/nprogress.css?v=0.0.3"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
         <?php
             $archivo = basename($_SERVER['PHP_SELF']);
             $pagina = str_replace(".php", "", $archivo);
@@ -25,7 +28,7 @@
               echo '<link rel="stylesheet" href="css/lightbox.css">';
             }
         ?>
-        <link rel="stylesheet" href="css/main.css?v=0.0.4">
+        <link rel="stylesheet" href="css/main.css?v=0.0.49">
         <link rel="stylesheet" href="css/colorbox.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
@@ -81,8 +84,33 @@
             <a href="invitados.php">Invitados</a>
             <?php //if(isset($_SESSION['usuario_cliente'])) { ?>
             <a href="login.php?cerrar_sesion=true"><i class="fa fa-user"></i> Cerrar Sesión</a>
-            <?php } ?>
+            <?php //} ?>
             <a href="login.php">Reservaciones</a>
           </nav>
       </div>
     </div> -->
+    <nav>
+      <div class="nav-wrapper blue-grey darken-4">
+        <a href="index.php" class="brand-logo"><img src="img/psiva_new.png" height="45px" alt="Logo PSIVAPP"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="conferencia.php" class="item <?php if($pagina == "conferencia") { ?>activated<?php } ?>">Conferencias</a></li>
+          <li><a href="calendario.php" class="item <?php if($pagina == "calendario") { ?>activated<?php } ?>">Calendario</a></li>
+          <li><a href="invitados.php" class="item <?php if($pagina == "invitados") { ?>activated<?php } ?>">Invitados</a></li>
+          <li><a href="login.php" class="item <?php if($pagina == "login") { ?>activated<?php } ?>"><span class="note">Reservaciones</span></a></li>
+          <?php if(isset($_SESSION['usuario_cliente'])) { ?>
+            <li><a href="login.php?cerrar_sesion=true" class="item <?php if($pagina == "login") { ?> activated <?php } ?>"><i class="fa fa-user"></i> Cerrar Sesión</a></li>
+          <?php } ?>
+        </ul>
+      </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="conferencia.php">Conferencias</a></li>
+      <li><a href="calendario.php">Calendario</a></li>
+      <li><a href="invitados.php">Invitados</a></li>
+      <li><a href="login.php">Reservaciones</a></li>
+      <?php if(isset($_SESSION['usuario_cliente'])) { ?>
+        <li><a href="login.php?cerrar_sesion=true"><i class="fa fa-user"></i> Cerrar Sesión</a></li>
+      <?php } ?>
+    </ul>
