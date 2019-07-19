@@ -14,7 +14,7 @@
 					$sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
 					$sql .= " INNER JOIN invitados ";
 					$sql .= " ON eventos.id_inv = invitados.invitado_id ";
-					$sql .= " ORDER BY fecha_evento";
+					$sql .= " ORDER BY fecha_evento, hora_evento";
 					$resultado = $conn->query($sql);
 				}
 				catch(Exeption $e){
@@ -44,17 +44,19 @@
 				foreach ($calendario as $dia => $lista_eventos) { ?>
 				<div class="row">
 					<div class="col s12 calendario">
-						<h3>
-							<i class="fa fa-calendar" aria-hidden="true"></i>
-							<?php
-								//Unix
-								setlocale(LC_TIME, 'es_ES.UTF-8');
-								//Windows
-								setlocale(LC_TIME, 'spanish');
+						<div class="card">
+							<h3>
+								<i class="fa fa-calendar" aria-hidden="true"></i>
+								<?php
+									//Unix
+									setlocale(LC_TIME, 'es_ES.utf-8');
+									//Windows
+									setlocale(LC_TIME, 'spanish');
 
-								echo utf8_encode(strftime("%A, %d de %B del %Y", strtotime($dia)));
-							?>
-						</h3>
+									echo strftime("%A, %d de %B del %Y", strtotime($dia));
+								?>
+							</h3>
+						</div>
 					</div>
 				</div>
 				<?php
@@ -80,7 +82,7 @@
 										<?php echo $evento['categoria']; ?>
 									</p>
 						        </div>
-						        <div class="card-action">
+						        <div class="card-action card-invitado">
 						          	<a href="invitado.php"><i class="fa fa-user" aria-hidden="true"></i>
 										<?php echo $evento['invitado']; ?></a>
 						        </div>

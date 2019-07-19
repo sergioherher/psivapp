@@ -10,12 +10,12 @@
    </div>
    <div class="menu">
     <h3>Redes<span>Sociales</span></h3>
-    <nav class="redes-sociales">
+    <div class="redes-sociales">
       <a href="https://www.facebook.com/PsicologiaIntegralconValores" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
       <a href="https://twitter.com/psicinesmejia" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
       <a href="https://www.youtube.com/user/psicisne" target="_blank"><i class="fab fa-youtube" aria-hidden="true"></i></a>
     <a href="https://api.whatsapp.com/send?phone=523312924902&amp;text=Hola,%20necesito%20información%20sobre%20sus%20servicios%20psicologicos" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-    </nav>
+    </div>
    </div>
  </div>
        <p class="copyright">Todos los derechos reservados Anguiano Serrano Marco Antonio(+52)3326403563</p>

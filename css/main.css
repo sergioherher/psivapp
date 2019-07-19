@@ -106,6 +106,34 @@ textarea {
    }
    /**Globales**/
 
+     /* label color */
+   .input-field label {
+     color: #263238;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #263238;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #00c853;
+     box-shadow: 0 1px 0 0 #00c853;
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid #00c853;
+     box-shadow: 0 1px 0 0 #00c853;
+   }
+   /* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid #00c853;
+     box-shadow: 0 1px 0 0 #00c853;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: #00c853;
+   }
+
     .nav-wrapper a.item:hover {
       /*background-color: #00c853;*/
       -webkit-box-shadow: 0 4px 2px -2px #00c853;
@@ -751,7 +779,7 @@ textarea {
     }
     /**Footer**/
     footer{
-      background-color: #353535;
+      background-color: #263238;
       padding-top: 40px;
       margin-top: 20px;
     }
@@ -767,7 +795,7 @@ textarea {
       }
     }
     footer h3{
-      color: #ffffff;
+      color: #e7dcfa;
       text-transform: uppercase;
       margin-bottom: 20px;
       font-family: 'Oswald' , sans-serif;
@@ -775,12 +803,23 @@ textarea {
     footer .ultimos-tweets li{
       margin-bottom: 10px;
     }
+
     footer h3 span{
-      color:  #fe4918;
+      color:  #00c853;
     }
-    footer nav.redes-sociales{
+
+    footer div.redes-sociales {
       text-align: left;
+      background-color: #263238;
     }
+
+    footer div.redes-sociales i {
+      text-align: left;
+      background-color: #263238;
+      color: #e7dcfa;
+      font-size: 24px;
+    }
+
     p.copyright{
       background-color: #2e2e2e;
       color: #ffffff;
@@ -946,11 +985,11 @@ textarea {
       -webkit-transform:scale(1.1);
     }*/
 
-    .card:hover {
+    /* .card:hover {
 
       -webkit-transform:scale(1.1);
       -webkit-animation: overlay 1s linear 5s 1 forwards;
-    }
+    } */
 
     .card-content {
        background-color: #263238; 
@@ -960,7 +999,14 @@ textarea {
     .card-title {
        background-color: #263238; 
        color: #00c853;
-       text-transform: uppercase;
+       font-weight: bold;
+       text-align: center;
+       font-size: 12px;
+    }
+
+    .card-action .card-invitado{
+       background-color: #263238; 
+       color: #00c853;
        font-weight: bold;
        text-align: center;
     }
@@ -968,6 +1014,11 @@ textarea {
     .card-action a {
        color: #263238 !important;
        text-align: center !important;
+    }
+
+    .card-action:hover a{
+       color: #00c853 !important;
+       text-align: center!important;
     }
 
     div.dia p {
